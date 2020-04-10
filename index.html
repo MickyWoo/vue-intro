@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View.js Intro</title>
+
+    <!-- "development code" for view from vue.js website -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Basics of Vue.js  >> connect element in page (HTML) with vue Object( JAVASCRIPT). and the basic components of el, data, to ID 
+                                also use of vue -if and vue-for -->
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- basic example of  -->
+        {{ mustache bracers...}}
+    </div>
+
+    <div id="list-app">
+        <p>Shopping list </p>
+        <ul>
+            <li v-for="item in shoppingList">
+                <!-- Example of v-for bullet point it instead of just printing out exact message-->
+                {{item}}
+            </li>
+        </ul>
+    </div>
+
+
+<div id="if-app">
+    <span v-if="seeable" >message </span>
+    <button v-on:click="toggleMessage"> Toggle Message</button>
+
+</div>
+
+    <script>
+        let myVue = new Vue({
+            el: "#app", // how we define element to vue object
+            data: { // data we want vue object to HAVE
+                message: "working with dynamic vue instead of getElbyID"
+            }
+        });
+
+        let listVue = new Vue({
+            el: "#list-app",
+            data: {
+                shoppingList: ["juice", "bread", "item"]
+
+            }
+
+        })
+
+        let ifVue = new Vue({
+            el: "#if-app",
+            data: {
+                seeable:true
+            },
+
+            methods:{
+                toggleMessage: function() {
+                    this.seeable = !this.seeable;
+                }
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>
